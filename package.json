@@ -5,10 +5,15 @@
   "main": "functions/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build":"netlify-lambda build express-server",
-    "start": "node server-local.js"
+    "build": "netlify-lambda build express",
+    "server_local": "node server-local.js",
+    "functions_local": "netlify-lambda serve express",
+    "formatfunctions": "prettier --write express/**/*.{js,jsx}"
   },
-  "keywords": ["netlify","expressjs"],
+  "keywords": [
+    "netlify",
+    "expressjs"
+  ],
   "author": "jonniebigodes",
   "license": "ISC",
   "dependencies": {
@@ -16,5 +21,9 @@
     "express": "^4.16.4",
     "netlify-lambda": "^1.4.7",
     "serverless-http": "^2.0.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "prettier": "1.17.0"
   }
 }
