@@ -26,8 +26,11 @@ router.route('/hello').get((req,res)=>{
 })
 router.route('/getfile/:name').get((req,res,next)=>{
   try {
+    if(!req.params.name){
+      return res.status(422)
+    }
     const filetosend= `./myimages/${req.params.name}.jpg`
-    if (!fs.existsSync(`./myimages`)){
+    if (!fs.existsSync(filetosend)){
       return res.status(200).json({exists:true})
     }
     return res.status(404).send('NOT FOUND')
