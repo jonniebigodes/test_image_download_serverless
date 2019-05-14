@@ -3,7 +3,7 @@ const serverless = require("serverless-http")
 const bodyparser = require("body-parser")
 const app = express()
 const router = express.Router();
-
+const fs= require('fs');
 
 
 router.route('/hello').get((req,res)=>{
@@ -24,17 +24,22 @@ router.route('/hello').get((req,res)=>{
       `
     res.send(html)
 })
-router.route('/getfile/:name').get(async(req,res,next)=>{
+router.route('/getfile/:name').get((req,res,next)=>{
   try {
-    const filetosend= `../myimages/${req.params.name}.jpg`
+    const filetosend= `./myimages/${req.params.name}.jpg`
+    if (!fs.existsSync(`./myimages`)){
+      return res.status(200).json({exists:true})
+    }
+    return res.status(404).send('NOT FOUND')
+
     //return res.status(200).json({nameoffile:req.params.name})
-    await res.download(filetosend,err=>{
+    /* await res.download(filetosend,err=>{
         if (err){
             console.log('====================================');
             console.log(`something went wrong sending the file ${filetosend}:\nerror:${err}`);
             console.log('====================================');
         }
-    })
+    }) */
     
   } catch (error) {
     next(error)
