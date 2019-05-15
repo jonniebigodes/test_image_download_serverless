@@ -31,17 +31,18 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     }
     const filetosend= `./myimages/${req.params.name}.jpg`
     if (!fs.existsSync(filetosend)){
+      return res.status(404).send('NOT FOUND')
       //return res.status(200).json({exists:true})
-      await res.download(filetosend,err=>{
-        if (err){
-          console.log('====================================');
-          console.log(`something went wrong sending the file ${filetosend}:\nerror:${err}`);
-          console.log('====================================');
-          return res.status(500).json({message:"Something went horribly wrong"})
-        }
-      })
+      
     }
-    return res.status(404).send('NOT FOUND')
+    await res.download(filetosend,err=>{
+      if (err){
+        console.log('====================================');
+        console.log(`something went wrong sending the file ${filetosend}:\nerror:${err}`);
+        console.log('====================================');
+        return res.status(500).json({message:"Something went horribly wrong"})
+      }
+    })
 
     //return res.status(200).json({nameoffile:req.params.name})
     /* await res.download(filetosend,err=>{
