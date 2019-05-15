@@ -31,13 +31,9 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     }
     const filetosend= `../myimages/${req.params.name}.jpg`
     console.log('====================================');
-    console.log(`function running on:${__dirname}`);
+    console.log(`function running on:${process.cwd()}`);
     console.log('====================================');
-    fs.readdirSync(__dirname).forEach(item=>{
-      console.log('====================================');
-      console.log(`item in folder:${item}`);
-      console.log('====================================');
-    })
+    
     if (fs.existsSync(filetosend)){
       
       return res.status(200).json({exists:true,file:filetosend})
