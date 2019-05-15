@@ -35,7 +35,7 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     console.log('====================================');
     
     
-    const currentpath= `../var/`
+    const currentpath= `${__dirname}/var/`
     fs.readdirSync(currentpath).forEach(item=>{
       console.log('====================================');
       console.log(`item inside folder:${item}`);
