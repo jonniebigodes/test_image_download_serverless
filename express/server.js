@@ -36,12 +36,11 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     
     
     const currentpath= `${__dirname}/media/`
-    fs.readdirSync(currentpath).forEach(item=>{
-      console.log('====================================');
-      console.log(`item inside folder:${item}`);
-      console.log('====================================');
-    })
+    const numitems=fs.readdirSync(currentpath).length
     
+    console.log('====================================');
+    console.log(`path:${currentpath}\nNumItems:${numitems}`);
+    console.log('====================================');
     if (fs.existsSync(filetosend)){
       
       return res.status(200).json({exists:true,file:filetosend})
