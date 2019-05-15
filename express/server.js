@@ -4,7 +4,7 @@ const bodyparser = require("body-parser")
 const app = express()
 const router = express.Router();
 const fs= require('fs');
-
+const path= require('path');
 
 router.route('/hello').get((req,res)=>{
   const html = `
@@ -30,6 +30,9 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
       return res.status(422)
     }
     const filetosend= `../myimages/${req.params.name}.jpg`
+    console.log('====================================');
+    console.log(`function running on:${__dirname}`);
+    console.log('====================================');
     if (fs.existsSync(filetosend)){
       
       return res.status(200).json({exists:true,file:filetosend})
