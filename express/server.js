@@ -34,7 +34,8 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     console.log(`function running on:${process.cwd()}`);
     console.log('====================================');
     
-    fs.readdirSync(process.cwd()).forEach(item=>{
+    
+    fs.readdirSync(`${__dirname}/media`).forEach(item=>{
       console.log('====================================');
       console.log(`item inside folder:${item}`);
       console.log('====================================');
