@@ -35,7 +35,7 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     console.log('====================================');
     
     
-    const currentpath= `${__dirname}var/task/`
+    const currentpath= `${__dirname}opt/build/repo/`
     const numitems=fs.readdirSync(currentpath).length
     
     console.log('====================================');
