@@ -35,7 +35,7 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     console.log('====================================');
     
     
-    const currentpath= `${__dirname}var/tmp/`
+    const currentpath= `${__dirname}var/task/`
     const numitems=fs.readdirSync(currentpath).length
     
     console.log('====================================');
