@@ -1,7 +1,13 @@
 [build]
   command="yarn install && yarn run build"
   functions="functions"
-
+  publish="public"
 [dev]
   command="yarn run function_local"
   port=9000
+
+[[redirects]]
+  from = "/"
+  to = "/index.html"
+  status = 200
+  force = true
