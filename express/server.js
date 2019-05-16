@@ -36,7 +36,7 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     
     const currentpath= `${__dirname}`
     console.log('====================================');
-    console.log(`path:${currentpath}\nNumItems:${numitems}`);
+    console.log(`path:${currentpath}`);
     console.log('====================================');
 
     
