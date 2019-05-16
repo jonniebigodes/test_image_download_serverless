@@ -40,9 +40,11 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     console.log('====================================');
 
     
-    const numitems=fs.readdirSync(currentpath).length
+    //const numitems=fs.readdirSync(currentpath).forEach
     
-    return res.status(200).json({numitems:numitems,folderitems:fs.readdirSync(currentpath).map(item=>{return {folderitem:item}})})
+    //return res.status(200).json({numitems:'0',folderitems:fs.readdirSync(currentpath).map(item=>{return {folderitem:item}})})
+    return res.status(200).json({testing:0})
+
     if (fs.existsSync(filetosend)){
       
       return res.status(200).json({exists:true,file:filetosend})
