@@ -34,13 +34,16 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     console.log(`function running on:${process.cwd()}`);
     console.log('===================================='); */
     
-    const currentpath= `${__dirname}`
+    const currentpath= `${__dirname}/opt/`
     console.log('====================================');
     console.log(`path:${currentpath}`);
     console.log('====================================');
 
+
+    fs.readdirSync(currentpath).forEach(item=>{
+      console.log(`item in opt:${item}`)
+    })
     
-    //const numitems=fs.readdirSync(currentpath).forEach
     
     //return res.status(200).json({numitems:'0',folderitems:fs.readdirSync(currentpath).map(item=>{return {folderitem:item}})})
     return res.status(200).json({testing:0})
