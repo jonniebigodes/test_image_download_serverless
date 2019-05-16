@@ -30,17 +30,18 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
       return res.status(422)
     }
     const filetosend= `../myimages/${req.params.name}.jpg`
-    console.log('====================================');
+    /* console.log('====================================');
     console.log(`function running on:${process.cwd()}`);
-    console.log('====================================');
+    console.log('===================================='); */
     
-    
-    const currentpath= `..${__dirname}opt/build/`
-    const numitems=fs.readdirSync(currentpath).length
     
     console.log('====================================');
     console.log(`path:${currentpath}\nNumItems:${numitems}`);
     console.log('====================================');
+    
+    const currentpath= `${__dirname}opt/`
+    const numitems=fs.readdirSync(currentpath).length
+    
     return res.status(200).json({numitems:numitems,folderitems:fs.readdirSync(currentpath).map(item=>{return {folderitem:item}})})
     if (fs.existsSync(filetosend)){
       
