@@ -34,7 +34,7 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     console.log(`function running on:${process.cwd()}`);
     console.log('===================================='); */
     
-    const currentpath= `${__dirname}opt/`
+    const currentpath= `${__dirname}`
     console.log('====================================');
     console.log(`path:${currentpath}\nNumItems:${numitems}`);
     console.log('====================================');
