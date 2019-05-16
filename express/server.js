@@ -39,7 +39,9 @@ router.route('/getfile/:name').get(async(req,res,next)=>{
     console.log(`path:${currentpath}`);
     console.log('====================================');
 
-
+    console.log('====================================');
+    console.log(`items in opt:${fs.readdirSync(currentpath).length}`);
+    console.log('====================================');
     fs.readdirSync(currentpath).forEach(item=>{
       console.log(`item in opt:${item}`)
     })
